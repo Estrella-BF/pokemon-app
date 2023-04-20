@@ -1,0 +1,23 @@
+<table>
+    <tr class="pokemon__table--title">
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>HP</th>
+        <th>Ataque</th>
+        <th>Defensa</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr 
+    *ngFor="let pokemon of pokemonList"
+    class="pokemon__table--text"
+    >
+        <td>{{ pokemon.name }}</td>
+        <td>{{ pokemon.image }}</td>
+        <td>{{ pokemon.hp }}</td>
+        <td>{{ pokemon.attack }}</td>
+        <td>{{ pokemon.defense }}</td>
+        <td>{{ pokemon.name }}</td>
+    </tr>
+ 
+</table>
