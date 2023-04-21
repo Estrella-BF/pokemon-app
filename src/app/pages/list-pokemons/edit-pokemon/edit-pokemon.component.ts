@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PokemonService } from 'src/app/service/pokemon.service';
-import { IPokemon } from '../interface/pokemon.interface';
+import { IPokemon } from '../../interface/pokemon.interface';
 
 @Component({
   selector: 'app-edit-pokemon',
