@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PokemonService } from 'src/app/service/pokemon.service';
 import { IPokemon } from '../interface/pokemon.interface';
@@ -13,8 +13,11 @@ export class EditPokemonComponent implements OnChanges {
   @Input()
   pokemonSelected: IPokemon = {} as IPokemon;
 
+  @Output() 
+  updatePokemonsList = new EventEmitter<boolean>();
+
   public form: FormGroup = {} as FormGroup;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private pokemonService: PokemonService
@@ -43,6 +46,9 @@ export class EditPokemonComponent implements OnChanges {
   updatePokemon() {
     const { value } = this.form;
     
-    this.pokemonService.updatePokemon(value).subscribe(res => console.log('res', res));
+    this.pokemonService.updatePokemon(value).subscribe(response => {
+      this.pokemonSelected = {} as IPokemon;
+      this.updatePokemonsList.emit(true);
+    });
   }
 }
