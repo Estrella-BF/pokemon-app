@@ -22,4 +22,8 @@ export class ListPokemonsComponent implements OnInit {
       this.pokemonList = pokemon;
     })
   }
+
+  refreshList() {
+    this.getAllPokemons();
+  }
 }

@@ -1,4 +1,11 @@
-<table class="pokemon__table">
+<app-search 
+[(pokemonsList)]="pokemonList"
+(refreshList)="refreshList()"
+></app-search>
+<table 
+*ngIf="pokemonList.length; else noPokemonFound"
+class="pokemon__table"
+>
     <tr class="pokemon__table--title">
         <th>Nombre</th>
         <th>Imagen</th>
@@ -29,3 +36,5 @@
     </tr>
  
 </table>
+
+<ng-template #noPokemonFound>No se encontró pokemon disponibles!</ng-template>
