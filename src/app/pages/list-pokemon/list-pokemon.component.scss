@@ -1,9 +1,38 @@
+@import '../../../assets/style/colors.scss';
+
+.pokemon__table {
+/*     border: 1px solid $blue-primary;
+    border-radius: 10px;
+    padding: 0.7em; */
+    border: 1px solid white;
+    
+    
+    th, td {
+        background-color: #96D4D4;
+        padding: 1em;
+      }
+}
+
 .pokemon__table--title {
-    font: 1.5rem;
-    color: #16275d;
+    font-size: 1.5rem;
+    color: $blue-primary;
+    text-align: left;
 }
 
 .pokemon__table--text {
-    color: #5d5d5d;
-    color: #385ba8;
+    color: $blue-secondary;
+    font-weight: 300;
+}
+
+.pokemon__table--image {
+    width: 4em;
+}
+
+.pokemon__table--icons {
+    display: flex;
+    justify-content: space-around;
+
+    i {
+        cursor: pointer;
+    }
 }

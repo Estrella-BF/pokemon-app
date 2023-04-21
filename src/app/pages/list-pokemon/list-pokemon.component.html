@@ -1,4 +1,4 @@
-<table>
+<table class="pokemon__table">
     <tr class="pokemon__table--title">
         <th>Nombre</th>
         <th>Imagen</th>
@@ -13,11 +13,19 @@
     class="pokemon__table--text"
     >
         <td>{{ pokemon.name }}</td>
-        <td>{{ pokemon.image }}</td>
+        <td>
+            <img class="pokemon__table--image" src="{{ pokemon.image }}" alt="pokemon">
+        </td>
         <td>{{ pokemon.hp }}</td>
         <td>{{ pokemon.attack }}</td>
         <td>{{ pokemon.defense }}</td>
-        <td>{{ pokemon.name }}</td>
+        <td>
+            <div class="pokemon__table--icons">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-trash"></i>
+            </div>
+    
+        </td>
     </tr>
  
 </table>
