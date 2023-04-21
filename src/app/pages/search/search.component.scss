@@ -1,0 +1,26 @@
+@import '../../../assets/style/colors.scss';
+
+.search {
+    margin-bottom: 3em;
+}
+
+.search__title {
+    color: $blue-primary;
+    font-size: 1.5rem;
+}
+
+.search__field {
+    width: 16em;
+} 
+
+.button--add {
+    background: none;
+    border: none;
+    background: #16aec2;
+    color: white;
+    font-weight: 300;
+    padding: 0.7em;
+    border-radius: 8px;
+    margin-left: 5em;
+    cursor: pointer;
+}

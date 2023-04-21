@@ -1,9 +1,6 @@
 @import '../../../assets/style/colors.scss';
 
 .pokemon__table {
-/*     border: 1px solid $blue-primary;
-    border-radius: 10px;
-    padding: 0.7em; */
     border: 1px solid white;
     
     
@@ -14,7 +11,6 @@
 }
 
 .pokemon__table--title {
-    font-size: 1.5rem;
     color: $blue-primary;
     text-align: left;
 }
