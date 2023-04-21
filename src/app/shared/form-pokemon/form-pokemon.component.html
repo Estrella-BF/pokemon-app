@@ -1,0 +1,29 @@
+<p class="edit__title">{{ title }}</p>
+
+<form [formGroup]="form">
+    <input formControlName="name" type="text" placeholder="Nombre...">
+    <br>
+    <br>
+    <input formControlName="hp" type="text" placeholder="HP...">
+    <br>
+    <br>
+    <input formControlName="attack" type="text" placeholder="Ataque...">
+    <br>
+    <br>
+    <input formControlName="defense" type="text" placeholder="Defensa...">
+    <br>
+    <br>
+    <ng-container *ngIf="isANewPokemon">
+        <input formControlName="type" type="text" placeholder="Type...">
+        <br>
+        <br>
+    </ng-container>
+
+</form>
+
+<button 
+(click)="clickedButton.emit(form.value)"
+class="button button--action"
+>
+{{ buttonName }}
+</button>

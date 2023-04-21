@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit, OnChanges {
       distinctUntilChanged())
       .subscribe(value => {
         this.filterPokemonList = this.pokemonsList.filter(item => item.name === value);
-        console.log('valueeee', value);
         
         if (this.filterPokemonList.length) 
         this.pokemonsListChange.emit(this.filterPokemonList);

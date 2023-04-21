@@ -8,45 +8,24 @@ import { IPokemon } from '../../interface/pokemon.interface';
   templateUrl: './edit-pokemon.component.html',
   styleUrls: ['./edit-pokemon.component.scss']
 })
-export class EditPokemonComponent implements OnChanges {
+export class EditPokemonComponent {
 
   @Input()
   pokemonSelected: IPokemon = {} as IPokemon;
 
   @Output() 
   updatePokemonsList = new EventEmitter<boolean>();
-
-  public form: FormGroup = {} as FormGroup;
+;
 
   constructor(
-    private formBuilder: FormBuilder,
     private pokemonService: PokemonService
   ) { }
 
-  ngOnChanges() {
 
-    this.initForm();
-  }
 
-  initForm() {
-    console.log('this.pokemonSelected',this.pokemonSelected);
+  updatePokemon(pokemonData: IPokemon) {
     
-    this.form = this.formBuilder.group({
-      name: [this.pokemonSelected.name],
-      hp: [this.pokemonSelected.hp],
-      attack: [this.pokemonSelected.attack],
-      defense: [this.pokemonSelected.defense],
-      id: [this.pokemonSelected.id],
-      idAuthor: [this.pokemonSelected.idAuthor],
-      image: [this.pokemonSelected.image],
-      type: [this.pokemonSelected.type],
-    });
-  }
-
-  updatePokemon() {
-    const { value } = this.form;
-    
-    this.pokemonService.updatePokemon(value).subscribe(response => {
+   this.pokemonService.updatePokemon(pokemonData).subscribe(response => {
       this.pokemonSelected = {} as IPokemon;
       this.updatePokemonsList.emit(true);
     });
