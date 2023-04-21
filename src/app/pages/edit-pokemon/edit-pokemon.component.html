@@ -1,21 +1,23 @@
-<div>
+<div *ngIf="(pokemonSelected | json) != '{}'">
     <p class="edit__title">Edita tu pokemon!</p>
 
     <form [formGroup]="form">
-        <input type="text" placeholder="Nombre...">
+        <input formControlName="name" type="text" placeholder="Nombre...">
         <br>
         <br>
-        <input type="text" placeholder="HP...">
+        <input formControlName="hp" type="text" placeholder="HP...">
         <br>
         <br>
-        <input type="text" placeholder="Ataque...">
+        <input formControlName="attack" type="text" placeholder="Ataque...">
         <br>
         <br>
-        <input type="text" placeholder="Defensa...">
+        <input formControlName="defense" type="text" placeholder="Defensa...">
         <br>
         <br>
     </form>
 
+    <button 
+    (click)="updatePokemon()"
+    class="button button--action"
+    >Actualizar</button>
 </div>
-
-<button class="button button--action">Actualizar</button>

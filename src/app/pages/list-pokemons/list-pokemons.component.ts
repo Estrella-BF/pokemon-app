@@ -10,6 +10,7 @@ import { IPokemon } from '../interface/pokemon.interface';
 export class ListPokemonsComponent implements OnInit {
 
   pokemonList: IPokemon[] = [];
+  pokemonSelected: IPokemon = {} as IPokemon;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -27,8 +28,7 @@ export class ListPokemonsComponent implements OnInit {
     this.getAllPokemons();
   }
 
-  editPokemon(index: IPokemon) {
-    console.log('index', index);
-    
+  editPokemon(pokemon: IPokemon) {
+    this.pokemonSelected = pokemon;
   }
 }

@@ -16,4 +16,9 @@ export class PokemonService {
     const url = `${this.baseURL}?idAuthor=1`;
     return this.httpClient.get<IPokemon[]>(url);
   }
+
+  updatePokemon(pokemonValue: IPokemon): Observable<IPokemon[]> {
+    const url = `${this.baseURL}${pokemonValue.id}`;
+    return this.httpClient.put<IPokemon[]>(url, pokemonValue);
+  }
 }
