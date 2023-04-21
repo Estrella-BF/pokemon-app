@@ -3,22 +3,22 @@ import { PokemonService } from 'src/app/service/pokemon.service';
 import { IPokemon } from '../interface/pokemon.interface';
 
 @Component({
-  selector: 'app-list-pokemon',
-  templateUrl: './list-pokemon.component.html',
-  styleUrls: ['./list-pokemon.component.scss']
+  selector: 'app-list-pokemons',
+  templateUrl: './list-pokemons.component.html',
+  styleUrls: ['./list-pokemons.component.scss']
 })
-export class ListPokemonComponent implements OnInit {
+export class ListPokemonsComponent implements OnInit {
 
   pokemonList: IPokemon[] = [];
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.getAllPokemon();
+    this.getAllPokemons();
   }
 
-  getAllPokemon() {
-    this.pokemonService.getAllPokemon().subscribe(pokemon => {
+  getAllPokemons() {
+    this.pokemonService.getAllPokemons().subscribe(pokemon => {
       this.pokemonList = pokemon;
     })
   }

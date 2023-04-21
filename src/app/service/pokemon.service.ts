@@ -12,7 +12,7 @@ export class PokemonService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllPokemon(): Observable<IPokemon[]> {
+  getAllPokemons(): Observable<IPokemon[]> {
     const url = `${this.baseURL}?idAuthor=1`;
     return this.httpClient.get<IPokemon[]>(url);
   }

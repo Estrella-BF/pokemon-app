@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListPokemonComponent } from './pages/list-pokemon/list-pokemon.component';
+import { ListPokemonsComponent } from './pages/list-pokemons/list-pokemons.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListPokemonComponent
+    ListPokemonsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
