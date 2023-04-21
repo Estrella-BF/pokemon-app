@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListPokemonsComponent } from './pages/list-pokemons/list-pokemons.component';
-import { SearchComponent } from './pages/search/search.component';
+import { SearchComponent } from './pages/list-pokemons/search/search.component';
 
 @NgModule({
   declarations: [
