@@ -1,6 +1,7 @@
 <app-search 
 [(pokemonsList)]="pokemonList"
 (refreshList)="refreshList()"
+(addPokemon)="addPokemon = $event"
 ></app-search>
 
 <div class="list-pokemon">
@@ -47,5 +48,11 @@
     [pokemonSelected]="pokemonSelected"
     (updatePokemonsList)="refreshList()"
     ></app-edit-pokemon>
+
+    <app-add-pokemon 
+    *ngIf="addPokemon"
+    [pokemonSelected]="pokemonSelected"
+    (updatePokemonsList)="refreshList()"
+    ></app-add-pokemon>
 </div>
 

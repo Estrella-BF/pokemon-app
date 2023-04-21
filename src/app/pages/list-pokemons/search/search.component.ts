@@ -18,6 +18,9 @@ export class SearchComponent implements OnInit, OnChanges {
   @Output()
   refreshList = new EventEmitter<boolean>();
 
+  @Output()
+  addPokemon = new EventEmitter<boolean>();
+
   filterPokemonList: IPokemon[] = [];
   updatePokemonToSearch = new Subject<string>();
 

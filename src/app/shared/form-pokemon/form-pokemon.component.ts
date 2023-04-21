@@ -35,6 +35,16 @@ export class FormPokemonComponent implements OnInit, OnChanges {
     this.initForm();
   }
 
+  setNewPokemon() {
+    if (this.isANewPokemon) {
+      this.form.patchValue({
+        idAuthor: '1',
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png'
+      });
+    }
+  }
+   
+
   initForm() {
     this.form = this.formBuilder.group({
       name: [this.pokemonSelected.name],
@@ -46,6 +56,7 @@ export class FormPokemonComponent implements OnInit, OnChanges {
       image: [this.pokemonSelected.image],
       type: [this.pokemonSelected.type],
     });
+    this.setNewPokemon();
   }
 
 }

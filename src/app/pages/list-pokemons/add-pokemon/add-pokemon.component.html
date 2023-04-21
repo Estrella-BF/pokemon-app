@@ -1,1 +1,6 @@
-<p>add-pokemon works!</p>
+<app-form-pokemon
+buttonName="Agregar"
+title="Agrega tu pokemon!"
+[pokemonSelected]="pokemonSelected"
+(clickedButton)="addPokemon($event)"
+></app-form-pokemon>

@@ -24,7 +24,6 @@ export class EditPokemonComponent {
 
 
   updatePokemon(pokemonData: IPokemon) {
-    
    this.pokemonService.updatePokemon(pokemonData).subscribe(response => {
       this.pokemonSelected = {} as IPokemon;
       this.updatePokemonsList.emit(true);

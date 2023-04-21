@@ -9,6 +9,7 @@ import { IPokemon } from '../interface/pokemon.interface';
 })
 export class ListPokemonsComponent implements OnInit {
 
+  addPokemon = false;
   pokemonList: IPokemon[] = [];
   pokemonSelected: IPokemon = {} as IPokemon;
 
@@ -26,6 +27,7 @@ export class ListPokemonsComponent implements OnInit {
 
   refreshList() {
     this.getAllPokemons();
+    this.addPokemon = false;
   }
 
   editPokemon(pokemon: IPokemon) {

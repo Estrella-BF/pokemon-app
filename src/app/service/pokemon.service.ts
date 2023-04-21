@@ -21,4 +21,8 @@ export class PokemonService {
     const url = `${this.baseURL}${pokemonValue.id}`;
     return this.httpClient.put<IPokemon[]>(url, pokemonValue);
   }
+
+  addPokemon(pokemonData: IPokemon): Observable<IPokemon[]> {
+    return this.httpClient.post<IPokemon[]>(this.baseURL, pokemonData);
+  }
 }
