@@ -3,16 +3,15 @@
 .pokemon__table {
     border: 1px solid white;
     
-    
     th, td {
         background-color: #96D4D4;
         padding: 1em;
+        text-align: center;
       }
 }
 
 .pokemon__table--title {
     color: $blue-primary;
-    text-align: left;
 }
 
 .pokemon__table--text {
@@ -31,4 +30,9 @@
     i {
         cursor: pointer;
     }
+}
+
+.list-pokemon {
+    display: flex;
+    justify-content: space-around;
 }

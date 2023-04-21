@@ -2,39 +2,47 @@
 [(pokemonsList)]="pokemonList"
 (refreshList)="refreshList()"
 ></app-search>
-<table 
-*ngIf="pokemonList.length; else noPokemonFound"
-class="pokemon__table"
->
-    <tr class="pokemon__table--title">
-        <th>Nombre</th>
-        <th>Imagen</th>
-        <th>HP</th>
-        <th>Ataque</th>
-        <th>Defensa</th>
-        <th>Acciones</th>
-    </tr>
 
-    <tr 
-    *ngFor="let pokemon of pokemonList"
-    class="pokemon__table--text"
-    >
-        <td>{{ pokemon.name }}</td>
-        <td>
-            <img class="pokemon__table--image" src="{{ pokemon.image }}" alt="pokemon">
-        </td>
-        <td>{{ pokemon.hp }}</td>
-        <td>{{ pokemon.attack }}</td>
-        <td>{{ pokemon.defense }}</td>
-        <td>
-            <div class="pokemon__table--icons">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <i class="fa-solid fa-trash"></i>
-            </div>
+<div class="list-pokemon">
+    <div>
+        <table 
+        *ngIf="pokemonList.length; else noPokemonFound"
+        class="pokemon__table"
+        >
+            <tr class="pokemon__table--title">
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>HP</th>
+                <th>Ataque</th>
+                <th>Defensa</th>
+                <th>Acciones</th>
+            </tr>
+        
+            <tr 
+            *ngFor="let pokemon of pokemonList; let i = index"
+            class="pokemon__table--text"
+            >
+                <td>{{ pokemon.name }}</td>
+                <td>
+                    <img class="pokemon__table--image" src="{{ pokemon.image }}" alt="pokemon">
+                </td>
+                <td>{{ pokemon.hp }}</td>
+                <td>{{ pokemon.attack }}</td>
+                <td>{{ pokemon.defense }}</td>
+                <td>
+                    <div class="pokemon__table--icons">
+                        <i (click)="editPokemon(pokemon)" class="fa-solid fa-pen-to-square"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+            
+                </td>
+            </tr>
+         
+        </table>
+        
+        <ng-template #noPokemonFound>No se encontró pokemon disponibles!</ng-template>
+    </div>
     
-        </td>
-    </tr>
- 
-</table>
+    <app-edit-pokemon></app-edit-pokemon>
+</div>
 
-<ng-template #noPokemonFound>No se encontró pokemon disponibles!</ng-template>

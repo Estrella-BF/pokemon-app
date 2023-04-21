@@ -26,4 +26,9 @@ export class ListPokemonsComponent implements OnInit {
   refreshList() {
     this.getAllPokemons();
   }
+
+  editPokemon(index: IPokemon) {
+    console.log('index', index);
+    
+  }
 }
