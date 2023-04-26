@@ -1,8 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { PokemonService } from 'src/app/service/pokemon.service';
 import { getAllPokemons } from 'src/app/service/pokemon.service.mocks';
+import { IPokemon } from '../interface/pokemon.interface';
 
 import { ListPokemonsComponent } from './list-pokemons.component';
 
@@ -29,10 +30,75 @@ describe('ListPokemonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get all pokemon', () => {
+  it('Should refresh list pokemon', () => {
+    // Arrange
     const getAllPokemonsSpy = spyOn(pokemonService, 'getAllPokemons').and.returnValue(
       of(getAllPokemons)
     );
+
+    // Act
+    component.refreshList();
+
+    // Assert
     expect(getAllPokemonsSpy).toHaveBeenCalled();
+    expect(component.addPokemon).toBeFalse();
+  });
+
+  it('should edit pokemon', () => {
+
+    // Arrange
+    const param = {
+      id: 35,
+      name: "Alakazam",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }
+
+    // Act
+    component.editPokemon(param);
+
+    // Assert
+    expect(component.pokemonSelected).toEqual(param);
+    expect(component.addPokemon).toBeFalse();
+  })
+
+  it('should delete pokemon', () => {
+
+    // Arrange
+    const pokemonToDelete = {
+      id: 1,
+      name: "pikachu",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
+      attack: 79,
+      defense: 61,
+      hp: 55,
+      type: "Eléctrico",
+      idAuthor: 1
+    }
+
+    const deletePokemonSpy = spyOn(pokemonService, 'deletePokemon').and.returnValue(
+      of()
+    );
+
+    // Act
+    component.deletePokemon(pokemonToDelete);
+
+    // Assert
+    expect(deletePokemonSpy).toHaveBeenCalled();
+  });
+
+  it('should', () => {
+
+    // Act
+    component.showFormAddPokemon();
+
+    // Assert
+    expect(component.addPokemon).toBeTrue();
+    expect(component.pokemonSelected).toEqual({} as IPokemon);
+
   })
 });
