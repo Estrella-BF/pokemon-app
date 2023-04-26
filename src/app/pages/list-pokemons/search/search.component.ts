@@ -39,7 +39,7 @@ export class SearchComponent implements OnInit, OnChanges {
       debounceTime(400),
       distinctUntilChanged())
       .subscribe(value => {
-        this.filterPokemonList = this.pokemonsList.filter(item => item.name === value);
+        this.filterPokemonList = this.pokemonsList.filter(item => item.name.toLowerCase() === value.toLowerCase() );
         
         if (this.filterPokemonList.length) 
         this.pokemonsListChange.emit(this.filterPokemonList);
