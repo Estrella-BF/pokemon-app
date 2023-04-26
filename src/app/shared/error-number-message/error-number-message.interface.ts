@@ -1,5 +1,9 @@
 export interface IErrorNumberMessage {
     required: boolean,
-    min: {},
-    max: {}
+    min: {
+        min: {}
+    },
+    max: {
+        max: {}
+    }
 }

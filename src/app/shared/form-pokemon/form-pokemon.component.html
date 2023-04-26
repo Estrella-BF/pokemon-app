@@ -1,7 +1,7 @@
 <p class="edit__title">{{ title }}</p>
 
 <form [formGroup]="form">
-    <input formControlName="name" type="text" placeholder="Nombre...">
+    <input formControlName="name" type="text" placeholder="Nombre..." maxlength="20">
     <app-error-number-message [errors]="setErrorMessage('name')"></app-error-number-message>
     <br>
     <br>
