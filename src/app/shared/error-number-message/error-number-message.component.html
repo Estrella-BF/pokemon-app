@@ -1,9 +1,9 @@
 <div *ngIf="errors" class="errors">
     <span *ngIf="errors?.['required']">Campo obligatorio</span>
     <span *ngIf="errors?.['max'] || errors?.maxlength">
-        Debe ingresar un valor menor o igual a {{ errors?.['max']?.max || errors?.['maxlength']?.requiredLength }}
+        Debe ingresar un valor menor o igual a {{ errors['max'].max || errors['maxlength'].requiredLength }}
     </span>
     <span *ngIf="errors?.['min'] || errors?.minlength">
-        Debe ingresar un valor mayor a {{ errors?.['min']?.min || errors?.['minlength']?.requiredLength }}
+        Debe ingresar un valor mayor a {{ errors['min'].min || errors['minlength'].requiredLength }}
     </span>
 </div>

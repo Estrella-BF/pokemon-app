@@ -28,6 +28,7 @@
 <button 
 (click)="clickedButton.emit(form.value)"
 class="button button--action"
+[ngClass]="{ 'button--disabled': form.invalid }"
 >
 {{ buttonName }}
 </button>

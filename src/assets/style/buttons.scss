@@ -15,7 +15,9 @@
     background: #16aec2;
 }
 
-
+.button--disabled {
+    background: grey !important;
+}
 
 .button--action {
     background: $blue-primary;
