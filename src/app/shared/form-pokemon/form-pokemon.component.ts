@@ -50,14 +50,14 @@ export class FormPokemonComponent implements OnInit, OnChanges {
     this.form = this.formBuilder.group({
       name: [this.pokemonSelected.name, [Validators.required, Validators.maxLength(20)]],
       hp: [
-        this.pokemonSelected.hp, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]
+        this.pokemonSelected.hp, [Validators.required, Validators.minLength(1), Validators.maxLength(900)]
       ],
       attack: [
-        this.pokemonSelected.attack, [Validators.required, Validators.minLength(1), Validators.maxLength(100)]
+        this.pokemonSelected.attack, [Validators.required, Validators.minLength(1), Validators.maxLength(900)]
       ],
       defense: [
         this.pokemonSelected.defense,
-        [Validators.required, Validators.minLength(1), Validators.maxLength(100)]
+        [Validators.required, Validators.minLength(1), Validators.maxLength(900)]
       ],
       id: [this.pokemonSelected.id],
       idAuthor: [this.pokemonSelected.idAuthor],

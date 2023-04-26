@@ -32,11 +32,17 @@ export class ListPokemonsComponent implements OnInit {
 
   editPokemon(pokemon: IPokemon) {
     this.pokemonSelected = pokemon;
+    this.addPokemon = false;
   }
 
   deletePokemon(pokemon: IPokemon) {
     this.pokemonService.deletePokemon(pokemon.id).subscribe(response => {
       this.getAllPokemons();
     })
+  }
+
+  showFormAddPokemon() {
+    this.addPokemon = true;
+    this.pokemonSelected = {} as IPokemon;
   }
 }
