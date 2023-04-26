@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPokemon } from 'src/app/pages/interface/pokemon.interface';
 import { IErrorNumberMessage } from '../error-number-message/error-number-message.interface';
@@ -8,7 +8,7 @@ import { IErrorNumberMessage } from '../error-number-message/error-number-messag
   templateUrl: './form-pokemon.component.html',
   styleUrls: ['./form-pokemon.component.scss']
 })
-export class FormPokemonComponent implements OnInit, OnChanges {
+export class FormPokemonComponent implements OnInit {
 
   @Input()
   buttonName: string = '';
@@ -30,9 +30,6 @@ export class FormPokemonComponent implements OnInit, OnChanges {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges() {
     this.initForm();
   }
 

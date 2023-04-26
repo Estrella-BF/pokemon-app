@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormPokemonComponent } from './form-pokemon.component';
 
@@ -8,7 +9,8 @@ describe('FormPokemonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormPokemonComponent ]
+      declarations: [ FormPokemonComponent ],
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
 
