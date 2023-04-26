@@ -2,23 +2,31 @@
 
 <form [formGroup]="form">
     <input formControlName="name" type="text" placeholder="Nombre...">
+    <app-error-number-message [errors]="setErrorMessage('name')"></app-error-number-message>
     <br>
     <br>
-    <input formControlName="hp" type="text" placeholder="HP...">
+    <input formControlName="hp" type="number" placeholder="HP..." min="1" max="100">
+    <app-error-number-message [errors]="setErrorMessage('hp')"></app-error-number-message>
     <br>
     <br>
-    <input formControlName="attack" type="text" placeholder="Ataque...">
+    <input formControlName="attack" type="number" placeholder="Ataque..." min="1" max="100">
+    <app-error-number-message [errors]="setErrorMessage('attack')"></app-error-number-message>
     <br>
     <br>
-    <input formControlName="defense" type="text" placeholder="Defensa...">
+    <input formControlName="defense" type="number" placeholder="Defensa..." min="1" max="100">
+    <app-error-number-message [errors]="setErrorMessage('defense')"></app-error-number-message>
     <br>
     <br>
     <ng-container *ngIf="isANewPokemon">
         <input formControlName="type" type="text" placeholder="Type...">
+        <span *ngIf="form.get('type')?.errors">Campo obligatorio</span>
         <br>
         <br>
     </ng-container>
 
+    <ng-container>
+
+    </ng-container>
 </form>
 
 <button 

@@ -10,6 +10,7 @@ import { ListPokemonsComponent } from './pages/list-pokemons/list-pokemons.compo
 import { SearchComponent } from './pages/list-pokemons/search/search.component';
 import { AddPokemonComponent } from './pages/list-pokemons/add-pokemon/add-pokemon.component';
 import { FormPokemonComponent } from './shared/form-pokemon/form-pokemon.component';
+import { ErrorNumberMessageComponent } from './shared/error-number-message/error-number-message.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormPokemonComponent } from './shared/form-pokemon/form-pokemon.compone
     EditPokemonComponent,
     AddPokemonComponent,
     FormPokemonComponent,
+    ErrorNumberMessageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,4 @@
+<ng-container *ngIf="errors">
+    <span *ngIf="errors?.['max']">Debe ingresar un valor menor o igual a 100</span>
+    <span *ngIf="errors?.['min']">Debe ingresar un valor mayor a 0</span>
+</ng-container>

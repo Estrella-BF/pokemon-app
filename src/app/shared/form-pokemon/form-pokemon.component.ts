@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPokemon } from 'src/app/pages/interface/pokemon.interface';
+import { IErrorNumberMessage } from '../error-number-message/error-number-message.interface';
 
 @Component({
   selector: 'app-form-pokemon',
@@ -47,16 +48,29 @@ export class FormPokemonComponent implements OnInit, OnChanges {
 
   initForm() {
     this.form = this.formBuilder.group({
-      name: [this.pokemonSelected.name],
-      hp: [this.pokemonSelected.hp],
-      attack: [this.pokemonSelected.attack],
-      defense: [this.pokemonSelected.defense],
+      name: [this.pokemonSelected.name, Validators.required],
+      hp: [
+        this.pokemonSelected.hp, [Validators.required, Validators.maxLength(100)]
+      ],
+      attack: [
+        this.pokemonSelected.attack, [Validators.min(1) , Validators.max(100)]
+      ],
+      defense: [
+        Number(this.pokemonSelected.defense),
+        [Validators.required, Validators.maxLength(100)]
+      ],
       id: [this.pokemonSelected.id],
       idAuthor: [this.pokemonSelected.idAuthor],
       image: [this.pokemonSelected.image],
       type: [this.pokemonSelected.type],
     });
     this.setNewPokemon();
+    console.log('form', this.form.get('hp'));
+    
+  }
+
+  setErrorMessage(controlName: string): IErrorNumberMessage {
+    return <IErrorNumberMessage>this.form.get(controlName)?.errors;
   }
 
 }
