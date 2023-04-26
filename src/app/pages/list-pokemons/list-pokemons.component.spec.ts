@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { PokemonService } from 'src/app/service/pokemon.service';
-import { getAllPokemons } from 'src/app/service/pokemon.service.mocks';
+import { getAllPokemons, onePokemonDataTest } from 'src/app/service/pokemon.service.mocks';
 import { IPokemon } from '../interface/pokemon.interface';
 
 import { ListPokemonsComponent } from './list-pokemons.component';
@@ -46,23 +46,11 @@ describe('ListPokemonComponent', () => {
 
   it('should edit pokemon', () => {
 
-    // Arrange
-    const param = {
-      id: 35,
-      name: "Alakazam",
-      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/065.png",
-      attack: 79,
-      defense: 61,
-      hp: 55,
-      type: "Eléctrico",
-      idAuthor: 1
-    }
-
     // Act
-    component.editPokemon(param);
+    component.editPokemon(onePokemonDataTest);
 
     // Assert
-    expect(component.pokemonSelected).toEqual(param);
+    expect(component.pokemonSelected).toEqual(onePokemonDataTest);
     expect(component.addPokemon).toBeFalse();
   })
 
